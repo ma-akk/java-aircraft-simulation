@@ -1,6 +1,6 @@
 package school21.project.avaj_launcher.aircrafts;
 
-import school21.project.avaj_launcher.Flyable;
+import school21.project.avaj_launcher.interfaces.Flyable;
 import school21.project.avaj_launcher.simulationExceptions.AircraftTypeNotFoundException;
 
 public abstract class AircraftFactory {
@@ -10,7 +10,7 @@ public abstract class AircraftFactory {
         HELICOPTER,
         JETPLANE,
     }
-    public Flyable newAircraft(String type, String name, int longitude, int latitude, int height) throws AircraftTypeNotFoundException {
+    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) throws AircraftTypeNotFoundException {
 
         typeAircraft test;
         try {

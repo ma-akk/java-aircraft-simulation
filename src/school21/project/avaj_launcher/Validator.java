@@ -8,20 +8,9 @@ import java.util.ArrayList;
 
 public class Validator {
 
-    private static Validator instance;
-
-    private Validator() {}
-
-    public static Validator getInstance() {
-        if (instance == null) {
-            instance = new Validator();
-        }
-        return instance;
-    }
-
     private static Integer numberOfSimulations = 0;
 
-    private static ArrayList<String[]> aircraftsString;
+    private static final ArrayList<String[]> aircraftsString = new ArrayList<>();
 
     public static Integer getNumberOfSimulations() {
         return numberOfSimulations;
@@ -61,7 +50,7 @@ public class Validator {
         if (line.length == 5) {
             return Integer.parseInt(line[2]) > 0 &&
                     Integer.parseInt(line[3]) > 0 &&
-                    Integer.parseInt(line[4]) > 0 && Integer.parseInt(line[3]) < 100;
+                    Integer.parseInt(line[4]) > 0;
         }
         return false;
     }
