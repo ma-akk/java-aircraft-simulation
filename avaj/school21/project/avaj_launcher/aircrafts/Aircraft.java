@@ -1,4 +1,4 @@
-package school21.project.avaj_launcher;
+package school21.project.avaj_launcher.aircrafts;
 
 public abstract class Aircraft {
     protected long id;

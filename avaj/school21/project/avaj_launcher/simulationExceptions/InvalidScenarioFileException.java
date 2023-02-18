@@ -1,4 +1,4 @@
-package school21.project.avaj_launcher.SimulationExceptions;
+package school21.project.avaj_launcher.simulationExceptions;
 
 public class InvalidScenarioFileException extends Exception {
 
