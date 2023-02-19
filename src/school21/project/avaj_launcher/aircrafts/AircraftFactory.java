@@ -14,17 +14,14 @@ public abstract class AircraftFactory {
 
         typeAircraft test;
         try {
-            test = typeAircraft.valueOf(type.toLowerCase());
+            test = typeAircraft.valueOf(type.toUpperCase());
             switch (test) {
-                case BALOON -> {
+                case BALOON:
                     return new Baloon(name, new Coordinates(longitude, latitude, height));
-                }
-                case HELICOPTER -> {
+                case HELICOPTER:
                     return new Helicopter(name, new Coordinates(longitude, latitude, height));
-                }
-                case JETPLANE -> {
+                case JETPLANE:
                     return new JetPlane(name, new Coordinates(longitude, latitude, height));
-                }
             }
         } catch (Exception ignored) {}
         throw new AircraftTypeNotFoundException("aircraft type: " + type + " not found");

@@ -1,11 +1,13 @@
-package school21.project.avaj_launcher.weather;
+package school21.project.avaj_launcher;
 
 import school21.project.avaj_launcher.interfaces.Flyable;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class Tower {
-    private ArrayList<Flyable> observers;
+    private final CopyOnWriteArrayList<Flyable> observers = new CopyOnWriteArrayList<>();
 
     public void register(Flyable flyable) {
         observers.add(flyable);

@@ -20,7 +20,7 @@ public class Validator {
         return aircraftsString;
     }
 
-    public boolean validateInputFile(String fileName) throws InvalidScenarioFileException {
+    public static boolean validateInputFile(String fileName) throws InvalidScenarioFileException {
         //файл существует
         //.txt
         //читаем построчно, первая строка - положительное число
@@ -46,7 +46,7 @@ public class Validator {
         return true;
     }
 
-    private boolean validateLine(String[] line) {
+    private static boolean validateLine(String[] line) {
         if (line.length == 5) {
             return Integer.parseInt(line[2]) > 0 &&
                     Integer.parseInt(line[3]) > 0 &&

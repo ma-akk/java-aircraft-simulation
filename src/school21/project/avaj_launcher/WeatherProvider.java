@@ -1,4 +1,4 @@
-package school21.project.avaj_launcher.weather;
+package school21.project.avaj_launcher;
 
 import school21.project.avaj_launcher.aircrafts.Coordinates;
 
@@ -22,7 +22,9 @@ public class WeatherProvider {
     }
 
     public String getCurrentWeather(Coordinates coordinates) {
-        //алгоритм должен учитывать координаты
-        return weather[(int)(Math.random() * 4)];
+        int randomNum = coordinates.getHeight() +
+                coordinates.getLatitude() * 3 +
+                coordinates.getLongitude() * 5;
+        return weather[randomNum % 4];
     }
 }

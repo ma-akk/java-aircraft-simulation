@@ -1,10 +1,9 @@
 package school21.project.avaj_launcher.interfaces;
 
-import school21.project.avaj_launcher.weather.WeatherTower;
+import school21.project.avaj_launcher.WeatherTower;
 
 public interface Flyable {
-    public void updateConditions();
+    void updateConditions();
 
-    //in uml WeatherTower WeatherTower
-    public void registerTower(WeatherTower weatherTower);
+    void registerTower(WeatherTower weatherTower);
 }
