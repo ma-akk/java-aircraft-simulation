@@ -2,7 +2,10 @@ package school21.project.avaj_launcher;
 
 import school21.project.avaj_launcher.aircrafts.AircraftFactory;
 import school21.project.avaj_launcher.interfaces.Flyable;
+import school21.project.avaj_launcher.simulationExceptions.WriteReadFileException;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Simulator {
@@ -17,6 +20,13 @@ public class Simulator {
         this.weatherTower = new WeatherTower();
         this.scenarioFileName = scenarioFileName;
         this.aircraftList = new ArrayList<>();
+        try {
+            FileWriter fileWriter = new FileWriter("simulation.txt");
+            fileWriter.write("");
+            fileWriter.close();
+        } catch (IOException e) {
+            throw new WriteReadFileException(e.getMessage());
+        }
     }
 
     public void simulate() {
@@ -33,7 +43,7 @@ public class Simulator {
                 }
                 int numberOfSimulations = Validator.getNumberOfSimulations();
                 for (int i = 0; i < numberOfSimulations; i++) {
-                    System.out.println("Simulation #" + (i + 1));
+                    System.out.println("___________________________________________________");
                     weatherTower.changeWeather();
                 }
             }

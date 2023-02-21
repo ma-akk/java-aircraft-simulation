@@ -22,9 +22,9 @@ public class WeatherProvider {
     }
 
     public String getCurrentWeather(Coordinates coordinates) {
-        int randomNum = coordinates.getHeight() +
+        int randomNum = (int) ((coordinates.getHeight() +
                 coordinates.getLatitude() * 3 +
-                coordinates.getLongitude() * 5;
+                coordinates.getLongitude() * 5) * Math.random());
         return weather[randomNum % 4];
     }
 }
