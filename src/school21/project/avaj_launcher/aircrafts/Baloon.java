@@ -16,7 +16,7 @@ public class Baloon extends Aircraft implements Flyable {
         String weather = weatherTower.getWeather(this.coordinates);
         String uniqueMsg = "";
         StringBuilder builder = new StringBuilder();
-        builder.append("BALOON#").append(this.name).append("(").append(this.id).append("): ");
+        builder.append("Ballon#").append(this.name).append("(").append(this.id).append("): ");
         switch (weather) {
             case ("SUN"):
                 coordinates = new Coordinates(

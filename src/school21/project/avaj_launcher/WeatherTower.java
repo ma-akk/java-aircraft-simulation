@@ -1,6 +1,10 @@
 package school21.project.avaj_launcher;
 
 import school21.project.avaj_launcher.aircrafts.Coordinates;
+import school21.project.avaj_launcher.simulationExceptions.WriteReadFileException;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 public class WeatherTower extends Tower {
     public String getWeather(Coordinates coordinates) {
@@ -11,15 +15,15 @@ public class WeatherTower extends Tower {
         this.conditionsChanged();
     }
 
-    //NOT uml method
     public void writeLogMsg(String uniqueMsg) {
-//        try {
-//            BufferedWriter writer = new BufferedWriter(new FileWriter("filename"));
-//            writer.write(uniqueMsg);
-//            writer.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-        System.out.println(uniqueMsg);
+        String filename = "simulation.txt";
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
+            writer.write(uniqueMsg + "\n");
+            writer.close();
+        } catch (Exception e) {
+            throw new WriteReadFileException(e.toString());
+        }
     }
 }

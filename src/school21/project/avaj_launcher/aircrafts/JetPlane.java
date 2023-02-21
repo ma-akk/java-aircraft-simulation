@@ -16,7 +16,7 @@ public class JetPlane extends Aircraft implements Flyable {
         String weather = weatherTower.getWeather(this.coordinates);
         String uniqueMsg = "";
         StringBuilder builder = new StringBuilder();
-        builder.append("JETPLANE#").append(this.name).append("(").append(this.id).append("): ");
+        builder.append("JetPlane#").append(this.name).append("(").append(this.id).append("): ");
         switch (weather) {
             case ("SUN"):
                 coordinates = new Coordinates(

@@ -20,11 +20,7 @@ public class Validator {
         return aircraftsString;
     }
 
-    public static boolean validateInputFile(String fileName) throws InvalidScenarioFileException {
-        //файл существует
-        //.txt
-        //читаем построчно, первая строка - положительное число
-        //вторая и далее соответствует формату
+    public static boolean validateInputFile(String fileName) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
             String line = reader.readLine();
@@ -35,15 +31,18 @@ public class Validator {
 
             while ((line = reader.readLine()) != null) {
                 String[] object = line.split("\\s+");
+                if (line.equals(""))
+                    continue;
                 if (validateLine(object))
                     aircraftsString.add(object);
                 else
                     return false;
             }
+            reader.close();
         } catch (Exception e) {
             throw new InvalidScenarioFileException(e.getMessage());
         }
-        return true;
+        return !aircraftsString.isEmpty();
     }
 
     private static boolean validateLine(String[] line) {
