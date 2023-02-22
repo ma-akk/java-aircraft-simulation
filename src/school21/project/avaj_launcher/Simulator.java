@@ -43,7 +43,6 @@ public class Simulator {
                 }
                 int numberOfSimulations = Validator.getNumberOfSimulations();
                 for (int i = 0; i < numberOfSimulations; i++) {
-                    System.out.println("___________________________________________________");
                     weatherTower.changeWeather();
                 }
             }

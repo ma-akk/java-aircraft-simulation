@@ -7,11 +7,6 @@ public abstract class Aircraft {
 
     protected Coordinates coordinates;
 
-    //NOT uml method
-    public Coordinates getCoordinates() {
-        return coordinates;
-    }
-
     private static long idCounter = 0;
 
     public Aircraft(String name, Coordinates coordinates) {

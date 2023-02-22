@@ -1,17 +1,16 @@
 package school21.project.avaj_launcher;
 
+import org.junit.Before;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import school21.project.avaj_launcher.aircrafts.AircraftFactory;
 import school21.project.avaj_launcher.interfaces.Flyable;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SimulatorTest {
-
-    String filename = "test/resources/scenario_25.txt";
+class WeatherGenerationTest {
 
     WeatherTower weatherTower = new WeatherTower();
 
@@ -19,16 +18,26 @@ class SimulatorTest {
 
     Flyable jpCopy = AircraftFactory.newAircraft("JetPlane", "JPTest", 21, 42, 50);
 
-
-    Simulator simulator = new Simulator(filename);
+    public void clearFile() {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("simulation.txt"));
+            writer.write("");
+            writer.close();
+        } catch (Exception ignore) {}
+    }
 
     @Test
-    void simulateTest() throws Exception {
+    @DisplayName("При одних и тех же координатах, генерируется разная погода => " +
+            "выводятся разные сообщения")
+    void generateWeatherTest() throws Exception {
+        clearFile();
         jp.registerTower(weatherTower);
+        jp.updateConditions();
         jp.updateConditions();
         jp.updateConditions();
 
         jpCopy.registerTower(weatherTower);
+        jpCopy.updateConditions();
         jpCopy.updateConditions();
         jpCopy.updateConditions();
 
@@ -36,18 +45,15 @@ class SimulatorTest {
         reader.readLine();
         String strFstUpload = reader.readLine();
         String strSecUpload = reader.readLine();
+        String strThrUpload = reader.readLine();
         reader.readLine();
         String strFstUploadCopy = reader.readLine();
         String strSecUploadCopy = reader.readLine();
+        String strThrUploadCopy = reader.readLine();
         reader.close();
-        System.out.println(strFstUpload);
-        System.out.println(strFstUploadCopy);
-        System.out.println(strSecUpload);
-        System.out.println(strSecUploadCopy);
-//
-//        assertNotEquals(strFstUpload, strFstUploadCopy);
-//        assertNotEquals(strSecUpload, strSecUploadCopy);
-
-
+        boolean compareRandom = strFstUpload.equals(strFstUploadCopy) &&
+                strSecUpload.equals(strSecUploadCopy) &&
+                strThrUpload.equals(strThrUploadCopy);
+        assertFalse(compareRandom);
     }
 }
