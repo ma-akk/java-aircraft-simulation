@@ -10,11 +10,11 @@ import java.util.ArrayList;
 
 public class Simulator {
 
-    private WeatherTower weatherTower ;
+    private final WeatherTower weatherTower ;
 
-    private ArrayList<Flyable> aircraftList;
+    private final ArrayList<Flyable> aircraftList;
 
-    private String scenarioFileName;
+    private final String scenarioFileName;
 
     public Simulator(String scenarioFileName) {
         this.weatherTower = new WeatherTower();

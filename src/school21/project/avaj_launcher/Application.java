@@ -3,7 +3,7 @@ package school21.project.avaj_launcher;
 import school21.project.avaj_launcher.simulationExceptions.IncorrectCountArgsException;
 
 public class Application {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         if (args.length == 1) {
             Simulator simulator = new Simulator(args[0]);
             simulator.simulate();

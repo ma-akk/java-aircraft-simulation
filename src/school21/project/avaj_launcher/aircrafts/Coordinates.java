@@ -1,11 +1,11 @@
 package school21.project.avaj_launcher.aircrafts;
 
 public class Coordinates {
-    private int longitude;
+    private final int longitude;
 
-    private int latitude;
+    private final int latitude;
 
-    private int height;
+    private final int height;
 
     Coordinates(int longitude, int latitude, int height) {
         this.longitude = longitude;
