@@ -1,6 +1,5 @@
 package school21.project.avaj_launcher;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import school21.project.avaj_launcher.aircrafts.AircraftFactory;
 import school21.project.avaj_launcher.interfaces.Flyable;

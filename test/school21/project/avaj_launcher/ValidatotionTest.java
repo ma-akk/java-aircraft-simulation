@@ -1,16 +1,7 @@
 package school21.project.avaj_launcher;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,7 +19,7 @@ class ValidatotionTest {
         for (int i = 1; i < 5; i++) {
             filename = "test" + i + ".txt";
             String finalFilename = filename;
-            Throwable thrown = assertThrows(RuntimeException.class, () -> {
+            assertThrows(RuntimeException.class, () -> {
                 Validator.validateInputFile(path + finalFilename);
             });
         }

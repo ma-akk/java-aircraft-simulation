@@ -12,15 +12,11 @@ class ApplicationTest {
 
     @Test
     void mainNullArgTestFail() {
-        Throwable thrown = assertThrows(RuntimeException.class, () -> {
-            Application.main(incorrectNullArgs);
-        });
+        assertThrows(RuntimeException.class, () -> Application.main(incorrectNullArgs));
     }
 
     @Test
     void mainCountArgTestFail() {
-        Throwable thrown = assertThrows(RuntimeException.class, () -> {
-            Application.main(incorrectArgs);
-        });
+        assertThrows(RuntimeException.class, () -> Application.main(incorrectArgs));
     }
 }
