@@ -8,6 +8,6 @@ $find * -name "*.java" > sources.txt
 $javac @sources.txt
 
 To execute the program\
-$java -cp ./src school21.project.avaj_launcher.Application
+$java -cp ./src school21.project.avaj_launcher.Application scenario.txt
 
 Directory test/ consists of unit tests for project, uses external library JUnit5.8.1
